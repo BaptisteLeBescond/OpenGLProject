@@ -12,9 +12,8 @@ public class Cube implements Object3D{
 	private float speedx = 0;
 	private float speedy = 0;
 	private float speedz = 0;
-	private boolean orbit;
 	
-	public Cube(float x, float y, float z, float l, float tx, float ty, float tz, boolean orbit){
+	public Cube(float x, float y, float z, float l, float tx, float ty, float tz){
 		this.x = x;
 		this.y = y;
 		this.z = z;
@@ -22,7 +21,6 @@ public class Cube implements Object3D{
 		this.tx = tx;
 		this.ty = ty;
 		this.tz = tz;
-		this.orbit = orbit;
 	}
 	
 	public void render(GLAutoDrawable arg0){
@@ -30,15 +28,11 @@ public class Cube implements Object3D{
 		gl.glLoadIdentity();
 		
 		gl.glPushMatrix();
-			gl.glTranslatef(x, y, z);
+
 			gl.glRotatef(speedx, 1f, 0f, 0f);
 			gl.glRotatef(speedy, 0f, 1f, 0f);
 			gl.glRotatef(speedz, 0f, 0f, 1f);
-
-			if(orbit)
-				gl.glTranslatef(x, y, z);
-			
-			
+			gl.glTranslatef(x, y, z);
 			gl.glBegin(gl.GL_QUADS);
 				//front
 				gl.glColor3f(1.0f,0.0f,0.0f);
@@ -84,6 +78,8 @@ public class Cube implements Object3D{
 				
 			gl.glEnd();
 		gl.glPopMatrix();
+		
+		
 		
 	}
 	

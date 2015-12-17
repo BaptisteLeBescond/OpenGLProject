@@ -9,8 +9,9 @@ import com.jogamp.opengl.glu.GLU;
 public class Render3D implements GLEventListener{
 
 	ArrayList<Object3D> Objets = new ArrayList<Object3D>();
-	Object3D cube1 = new Cube(0f, 0f, -10f, 0.25f, 0f, 0f, 5f, false);
-	Object3D cube2 = new Cube(0f, 0f, -5f, 0.125f, 0f, 5f, 0f, true);
+	Object3D cube1 = new Cube(0f, 0f, 0f, 0.125f, 0f, 5f, 0f);
+	Object3D cube2 = new Cube(0f, 0.5f, 0f, 0.07f, 5f, 0f, 0f);
+	Object3D cube3 = new Cube(0.9f, 0f, 0f, 0.05f, 0f, 0f, 5f);
 	
 	@Override
 	public void display(GLAutoDrawable arg0) {
@@ -39,18 +40,19 @@ public class Render3D implements GLEventListener{
 		
 		Objets.add(cube1);
 		Objets.add(cube2);
+		Objets.add(cube3);
 	}
 
 	@Override
 	public void reshape(GLAutoDrawable arg0, int arg1, int arg2, int arg3, int arg4) {
-		GL2 gl = arg0.getGL().getGL2();
-		gl.glViewport(0, 0, arg3, arg4);
-		gl.glMatrixMode(gl.GL_PROJECTION);
-		gl.glLoadIdentity();
-		GLU glu = new GLU();
-		glu.gluPerspective(45f, (float)arg3/(float)arg4, 0.1f, 100f);
-		gl.glMatrixMode(gl.GL_MODELVIEW);
-		gl.glLoadIdentity();
+//		GL2 gl = arg0.getGL().getGL2();
+//		gl.glViewport(0, 0, arg3, arg4);
+//		gl.glMatrixMode(gl.GL_PROJECTION);
+//		gl.glLoadIdentity();
+//		GLU glu = new GLU();
+//		glu.gluPerspective(45f, (float)arg3/(float)arg4, 0.1f, 100f);
+//		gl.glMatrixMode(gl.GL_MODELVIEW);
+//		gl.glLoadIdentity();
 	}
 	
 	public void render(GLAutoDrawable arg0){
